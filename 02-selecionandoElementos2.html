@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+        //Estamos passando Seletores diferentes para uma determinada pagina, por exemplo fazendo seleções e modificando cores por meio de querySelector e querySelectorAll
+        //Retorna varios objetos e te dá apenas o primeiro .O querySelector retorna o primeiro elemento dentro do documento e              
+        document.querySelector('#primeiro').classList.add('destaque');
+
+        const selecionar = seletor =>
+            //Função retorna um nodeList .QuerySelectorAll retorna uma lista de elementos presentes no documento
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div') // Selecionar tudo 
+
+        deselecionar('*')
+        selecionar('.terceito.ultimo') // Selecionar o ultimo elemento
+
+        deselecionar('*')
+        selecionar(':not(#primeiro)') // Não selecionar o primeiro elemento mas os outros dois ultimos 
+
+        deselecionar('*')
+        selecionar(':nth-child(1)') //Selecionando o primeiro filho do elemento body 
+
+        deselecionar('*')
+        selecionar('div:nth-of-type(1)') //Selecionando o primeiro elemento do tipo Div
+
+        deselecionar('*')
+        selecionar('[wb-attrib') // Vai selecionar o span  que é passado no html por wb-attrib 
+
+    </script>
+</body>
+
+</html>
